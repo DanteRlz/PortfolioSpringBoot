@@ -1,15 +1,16 @@
 package services;
 
+import java.util.List;
 import model.About;
 
 public interface IAboutService {
     
-    public void verHistory (About history);
+    public List<About> verAbout ();
     
-    public void crearHistory (About history);
+    public void crearAbout (About about);
     
-    public void borrarHistory (About history);
+    public void borrarAbout (Long id);
     
-    public void buscarHistory (About history);
+    public About buscarAbout (Long id);
     
 }

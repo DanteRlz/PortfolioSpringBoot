@@ -1,32 +1,34 @@
 package services;
 
+import java.util.List;
+import java.util.Optional;
 import model.About;
+import org.springframework.stereotype.Service;
 import repository.AboutRepository;
 
 
-
+@Service
 public class AboutService implements IAboutService {
-
+    
     public AboutRepository aboutRepo;
-    
+
     @Override
-    public void verHistory(About history) {
-        aboutRepo.findAll();                
+    public List<About> verAbout() {
+       return aboutRepo.findAll();
     }
 
     @Override
-    public void crearHistory(About history) {
-        aboutRepo.saveAndFlush(history);
+    public void crearAbout(About about) {
+         aboutRepo.save(about);
     }
 
     @Override
-    public void borrarHistory(About history) {
-        aboutRepo.delete(history);
+    public void borrarAbout(Long id) {
+        aboutRepo.deleteById(id);
     }
 
     @Override
-    public void buscarHistory(About history) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public About buscarAbout(Long id) {
+       return aboutRepo.findById(id).orElse(null);
     }
-    
 }
